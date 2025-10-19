@@ -41,14 +41,14 @@ DISCUSSION:
 
 The simulation corroborates the theoretical analysis in Osterman 2025: maximizing expected value prioritizes short-term upside at the cost of structural fragility, while maximizing the expected growth rate produces robust, sustainable outcomes over time. Consider, for example, Figure 2 below:
 
-<img width="510" height="382" alt="Screenshot 2025-10-19 at 12 46 08 PM" src="https://github.com/user-attachments/assets/569d880c-bc33-472d-84d5-8d403f2bc6c4" />
+![Figure 2](https://github.com/user-attachments/assets/46bfb46f-ba6a-45f6-abc4-cbd1d1af411d)
 
 Figure 2: a characteristic graphical output of one run of the simulation. Shocks incurred by both strategies (e.g., the initial “dip” from t = 1 to t = 5) are dampened by EGR (orange), allowing for greater resiliency and the potential to bounce back from unfavorable circumstances. EV (blue), on the other hand, almost immediately depletes its resources, oscillating just above the cut off point for extinction for many rounds before finally exhausting itself. Note that clamp here = 0.6—a conservative adjustment to both strategies.
 
 In the first few rounds of play, although the players have an investment edge, enticing both to make an investment, it does not pay off; both players consistently incur losses until ~ t = 7. By investing proportional to the edge, however, the EGR strategy dampens the shock to its portfolio, leaving it with greater resources going forward. The EV strategy, making no such adjustment, quickly fritters away its portfolio, leaving it to oscillate around some low value from which it is unable to recover before eventually depleting its resources entirely. 
 Figure 3 provides another interesting example of the instability of EV:
 
-<img width="510" height="379" alt="Screenshot 2025-10-19 at 4 34 00 PM" src="https://github.com/user-attachments/assets/9b913550-3cfd-4e99-81a7-ad3c9a2c60c0" />
+![Figure 3](https://github.com/user-attachments/assets/e358a18d-0071-490f-86e1-7b000e973859)
 
 Figure 3: for clamp = 1.0 (bottom right), in this case EV (blue) wildly outperforms EGR (orange), before collapsing spectacularly, due to the long run instability of the strategy. 
 
