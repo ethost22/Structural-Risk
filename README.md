@@ -14,7 +14,9 @@ COMPUTATIONAL IMPLEMENTATION:
 The accompanying code implements a Monte Carlo simulation comparing the expected value (EV) and expected growth rate (EGR) strategies over repeated stochastic rounds of investment. Two simulated agents begin with identical portfolios and face sequential investment opportunities defined by:
 
 •	upside, the potential gain multiplier,
+
 •	downside, the potential loss multiplier, and
+
 •	p the probability of success.
 
 Player 1 invests according to EV maximization (all-in when the edge is positive, since EV increases linearly with proportion invested when edge > 0, and 0 otherwise); Player 2 invests according to EGR optimization (proportionally to the edge afforded to the player, bounded between 0 and 1). Player portfolios are updated each round according to the outcome of the gamble. The game terminates when one or more players goes bankrupt or after 200 rounds of play have transpired. Various risk-averse (‘clamp”) parameters are tested, which specify a fraction of the initial recommendation to invest. Using Monte Carlo methods, the simulation is repeated 10,000 times per parameter value in order to estimate the average terminal portfolio value for each strategy. 
@@ -32,7 +34,9 @@ Figure 1: characteristic output of the simulation for EV and EGR strategies. Ave
 Across all experimental conditions, we note the following:
 
 •	The expected value (EV) strategy proves to be excessively risk-seeking and repeatedly courts ruination, converging toward an average portfolio value of 0 as conservative adjustments (in the form of the clamp parameter) are minimized.
+
 •	The expected growth rate (EGR) strategy consistently outperforms EV, maintaining positive long-run growth.
+
 •	When “clamped” (i.e., constrained to invest a fixed fraction of the recommended amount), EV performance improves but never surpasses EGR. In the context of the model, a “clamped” or “fractional” EGR strategy at a fraction of about 0.7 appears to maximize long-term portfolio value.
 
 DISCUSSION:
