@@ -1,7 +1,7 @@
 # Structural-Risk
 Simulation of expected value (EV) versus expected growth rate (EGR) investment strategies; this work expands upon an earlier paper in decision theory (Osterman 2025, the "technical report" in the repository), putting it in a computational context.
 
-OVERVIEW:
+BACKGROUND:
 
 Longtermism is a philosophical position emerging from classical utilitarianism, effective altruism, and contemporary rationalist communities. It is broadly committed to maximizing “total value” in the universe in the long term, often through the implementation of speculative technologies such as artificial general intelligence. In recent years, longtermist ideas have had an increasing influence on policy, particularly through their uptake by technology and investment leaders in Silicon Valley (cf. Godfrey-Smith 2022; Torres 2024).
 
