@@ -1,4 +1,4 @@
-[monte_carlo_risk.csv](https://github.com/user-attachments/files/23014898/monte_carlo_risk.csv)[monte_carlo_risk.csv](https://github.com/user-attachments/files/23014892/monte_carlo_risk.csv)# Structural Risk – Summary Report
+# Structural Risk – Summary Report
 This project produces Monte Carlo simulation of expected value (EV) versus expected growth rate (EGR) investment strategies; this work expands upon an earlier paper in decision theory (Osterman 2025, the "technical report" in the repository), putting it in a computational context.
 
 BACKGROUND:
