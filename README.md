@@ -53,7 +53,7 @@ Figure 3 provides another interesting example of the instability of EV:
 
 Figure 3: 6 subplots for clamp parameters = [0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
 
-In the case where clamp = 1.0 (i.e., no conservative adjustment) EV quickly takes the lead over EGR; EGR dampens both negative shocks and short term gains, meaning that, in the event that both strategies win multiple rounds to start, EV will generically outperform EGR. But just as quickly as resources are won by EV, they are lost again. EV is thus shown to be a remarkably volatile strategy; short term success of the strategy is no predictor of stability, and so strategies of this kind are unsuitable for long run, future-facing policy.
+In the case where clamp = 1.0 (i.e., no conservative adjustment) EV quickly takes the lead over EGR; EGR dampens both negative shocks and short term gains, meaning that, in the event that both strategies win multiple rounds to start, EV will generically outperform EGR. But just as quickly as resources are won by EV, they are lost again. Similar behavior can be seen for clamp = 0.7, 0.8 above. EV is thus shown to be, once again, a remarkably volatile strategy; short term success of the strategy is no predictor of stability, and so strategies of this kind are unsuitable for long run, future-facing policy.
 
 Works Cited:
 
