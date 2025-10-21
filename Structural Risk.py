@@ -174,8 +174,8 @@ def single_trial(n = 0, clamp = 0.8):
         #of the strategies runs out of resources.
         P1_portfolio.append(P1_current)
         P2_portfolio.append(P2_current)
-        time_sequence.append(time_current)
         time_current += 1
+        time_sequence.append(time_current)
 
         #We end the simulation when the remaining portfolio of one or more strategies
         #is vanishingly small, i.e., less than 1.
@@ -192,6 +192,49 @@ def single_trial(n = 0, clamp = 0.8):
     #print(P1_report, P2_report)
     return (P1_portfolio, P2_portfolio, time_sequence)
 
+def repeatable_trial(n = 0, clamp = 0.8):
+    #This is essentially the same as single_trial(), but removes the
+    #list appendices, since in the context of the full Monte Carlo simulation, all
+    #that we are concerned with is the final result of each run. This should
+    #increase computational efficiency marginally.
+
+    #initializing portfolios
+    P1_portfolio = 200
+    P2_portfolio = 200
+
+    check = True
+    count = 0
+
+    while check == True:
+        #generating round parameters
+        w, l, p = round_select(n)
+
+        #determining investment values
+        P1_invest = P1_portfolio * ev(w, l, p) * clamp
+        P2_invest = P2_portfolio * egr(w, l, p) * clamp
+
+        #determining outcome
+        diceroll = random.random()
+
+        # we check to see the outcome of our investment; if diceroll is below
+        # the probability threshold, we have a win. Otherwise we have a loss.
+        if diceroll < p:
+            P1_portfolio += P1_invest
+            P2_portfolio += P2_invest
+        else:
+            P1_portfolio -= P1_invest
+            P2_portfolio -= P2_invest
+
+        if P1_portfolio < 1 or P2_portfolio < 1:
+            check = False
+        elif count > 200:
+            check = False
+
+        count += 1
+
+    return [P1_portfolio, P2_portfolio]
+
+
 def monte_carlo(n=0, clamp = 0.8):
     #Monte Carlo methods can be used to get a statistical approximation of the average
     #result of a given strategy (ev vs. egr). We do this by keeping a running total
@@ -203,9 +246,9 @@ def monte_carlo(n=0, clamp = 0.8):
 
     for i in range(0, N):
         #grab the final value for each strategy and add it to a running total
-        temp = single_trial(n, clamp)
-        P1_final += temp[0][-1]
-        P2_final += temp[1][-1]
+        temp = repeatable_trial(n, clamp)
+        P1_final += temp[0]
+        P2_final += temp[1]
 
     #we report the average final value for each strategy
     #by dividing the sum of all final values by the number
