@@ -35,7 +35,7 @@ Across all experimental conditions, we note the following:
 
 •	The expected growth rate (EGR) strategy consistently outperforms EV, maintaining positive long-run growth.
 
-•	When “clamped” (i.e., constrained to invest a fixed fraction of the recommended amount), EV performance improves but never surpasses EGR (for the same clamp value). In the context of the model, a “clamped” or “fractional” EGR strategy of about 0.7 appears to maximize long-term portfolio value.
+•	When “clamped” (i.e., constrained to invest a fixed fraction of the recommended amount), EV performance improves but never surpasses EGR (for the same clamp value). In the context of the model, a “clamped” or “fractional” EGR strategy of about 0.7 appears to maximize long-term portfolio value across stochastic regimes (round types).
 
 DISCUSSION:
 
