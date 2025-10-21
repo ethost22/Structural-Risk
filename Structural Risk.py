@@ -10,6 +10,7 @@
 import random
 import matplotlib.pyplot as plt
 import timeit
+import csv
 
 def edge(upside, downside, p):
     #Simple calculation of "edge" in the procedure. The equation is derived by
@@ -297,6 +298,43 @@ def print_matrix(low = 2, high = 10):
         print()
     return
 
+def matrix_as_csv(low = 2, high = 10):
+    #an alternate method to output the data as a csv file
+    #out is set to the matrix output of our "clamp" parameter sweep
+    out = clamp_iteration(low, high)
+    #we want to put the data into a "cleaned" matrix with the data
+    #processed in scientific notation, and removing the redundant
+    #instances of the clamp parameters.
+    #note that matrix = [[[], [], []], [[], [], []], [[], [], []]]
+    cleaned = [[[],[]],[[],[]],[[],[]]]
+
+    #processing the data into scientfic notation
+    for i in range(0, 3):
+        for j in range(1, 3):
+            #we need to grab the EV and EGR data for each round type
+            #and convert it into scientific notation
+            for k in range(0, len(out[i][j])):
+                out[i][j][k] = "{:.2e}".format(out[i][j][k])
+            #we need to adjust the j value by -1 since the cleaned
+            #matrix has removed the first row, which stored the 
+            #clamp values.
+            cleaned[i][j-1] = out[i][j]
+
+    with open("monte_carlo_risk.csv", "w", newline = "") as csvfile:
+        writer = csv.writer(csvfile)
+        #the first row is our clamp parameters, which are constant across
+        #all stochastic regimes
+        for i in range(0, len(out[0][0])):
+            out[0][0][i] = "{:.1f}".format(out[0][0][i])
+        writer.writerow(["clamp"] + out[0][0])
+        for i in range(0, 3):
+            #having written out our clamp parameters, we need to output the
+            #simulation data
+            writer.writerow([f"EV type {i}"] + cleaned[i][0])
+            writer.writerow([f"EGR type {i}"] + cleaned[i][1])
+
+    return
+
 def main():
     #outputs a set of graphs as well as a matrix of results for both strategies
     #under various clamp parameters and under different round paradigms.
@@ -316,12 +354,17 @@ def main():
     #necessitating the maximum 200 turns per round each time.
     #e.g., using (6, 10) here instead of the default (2, 10) takes only ~3 seconds
     #as compared with ~16. (7, 10) takes ~1.5 seconds. (8, 10) takes under a second.
-    print_matrix(6, 11)
+    #print_matrix(6, 11)
+
+    #the following line reports as a CSV
+    matrix_as_csv(6, 11)
     return
 
 if __name__ == "__main__":
     #packaging the code into a single main() function; includes
     #runtime tracking for purposes of further optimization.
+    #deterministic seed for repeatability
+    random.seed(0)
     start = timeit.default_timer()
     main()
     stop = timeit.default_timer()
