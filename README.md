@@ -49,7 +49,7 @@ In the first few rounds of play, although the players have an edge, enticing bot
 
 Figure 3 provides another interesting example of the instability of EV:
 
-![Figure 3](https://github.com/user-attachments/assets/e358a18d-0071-490f-86e1-7b000e973859)
+![Plot](https://github.com/user-attachments/assets/cc3bcaa5-e7af-44e2-9464-06ea0510003e)
 
 Figure 3: 6 subplots for clamp parameters = [0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
 
