@@ -106,6 +106,7 @@ def vis_suplots(m, clamp):
         plt.yticks(rotation=75)
     plt.legend(loc='upper right', bbox_to_anchor=(1, -0.2), ncols=2)
     plt.tight_layout(pad=1.0)
+    plt.savefig("risk_plots.png")
     plt.show()
 
 def round_select(n):
@@ -316,11 +317,11 @@ def matrix_as_csv(low = 2, high = 10):
             for k in range(0, len(out[i][j])):
                 out[i][j][k] = "{:.2e}".format(out[i][j][k])
             #we need to adjust the j value by -1 since the cleaned
-            #matrix has removed the first row, which stored the 
+            #matrix has removed the first row, which stored the
             #clamp values.
             cleaned[i][j-1] = out[i][j]
 
-    with open("monte_carlo_risk.csv", "w", newline = "") as csvfile:
+    with open("risk_table.csv", "w", newline = "") as csvfile:
         writer = csv.writer(csvfile)
         #the first row is our clamp parameters, which are constant across
         #all stochastic regimes
@@ -340,7 +341,7 @@ def main():
     #under various clamp parameters and under different round paradigms.
     # Key finding: as clamp parameter approaches 1 (i.e., minimally conservative
     # adjustment against risk of ruin), ev approaches 0, whereas egr does not)
-    #the following two lines run one round and print a graph
+    #the following lines print 6 subplots
     to_plot = []
     for i in range(5, 11):
         temp = single_trial(2, i * 0.1)
@@ -354,6 +355,8 @@ def main():
     #necessitating the maximum 200 turns per round each time.
     #e.g., using (6, 10) here instead of the default (2, 10) takes only ~3 seconds
     #as compared with ~16. (7, 10) takes ~1.5 seconds. (8, 10) takes under a second.
+    #Note that this line is commented out due to the additional inclusion of
+    #the matrix_as_csv() function.
     #print_matrix(6, 11)
 
     #the following line reports as a CSV
@@ -362,8 +365,8 @@ def main():
 
 if __name__ == "__main__":
     #packaging the code into a single main() function; includes
-    #runtime tracking for purposes of further optimization.
-    #deterministic seed for repeatability
+    #runtime tracking for purposes of further optimization
+    #and deterministic seed for repeatability
     random.seed(0)
     start = timeit.default_timer()
     main()
