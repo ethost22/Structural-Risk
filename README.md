@@ -45,7 +45,7 @@ The simulation corroborates the theoretical analysis in Osterman 2025: maximizin
 
 Figure 2: a characteristic graphical output of one run of the simulation. 
 
-In the first few rounds of play, although the players have an investment edge, enticing both to make an investment, it does not pay off; both players consistently incur losses until ~ t = 7. By investing proportional to the edge, however, the EGR strategy dampens the shock to its portfolio, leaving it with greater resources going forward. The EV strategy, making no such adjustment, quickly fritters away its portfolio, leaving it to oscillate around some low value from which it is unable to recover before eventually depleting its resources entirely. Note that clamp here = 0.6—a conservative adjustment to both strategies.
+In the first few rounds of play, although the players have an edge, enticing both to make an investment, it does not pay off; both players consistently incur losses until ~ t = 7. By investing proportional to the edge, however, the EGR strategy dampens the shock to its portfolio, leaving it with greater resources going forward. The EV strategy, making no such adjustment, quickly fritters away its portfolio, leaving it to oscillate around some low value from which it is unable to recover. It eventually depletes its resources entirely, ending the simulation. Note that clamp here = 0.6—a conservative adjustment to both strategies.
 
 Figure 3 provides another interesting example of the instability of EV:
 
@@ -53,7 +53,7 @@ Figure 3 provides another interesting example of the instability of EV:
 
 Figure 3: 6 subplots for clamp parameters = [0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
 
-In the case where clamp = 1.0 (i.e., no conservative adjustment) EV quickly takes the lead over EGR. But just as quickly as resources are won, they are lost again. EV is thus shown to be a remarkably volatile strategy. Short term success of the strategy is no predictor of stability, and so strategies of this kind are unsuitable for long run, future-facing policy.
+In the case where clamp = 1.0 (i.e., no conservative adjustment) EV quickly takes the lead over EGR; EGR dampens both negative shocks and short term gains. But just as quickly as resources are won by EV, they are lost again. EV is thus shown to be a remarkably volatile strategy. Short term success of the strategy is no predictor of stability, and so strategies of this kind are unsuitable for long run, future-facing policy.
 
 Works Cited:
 
