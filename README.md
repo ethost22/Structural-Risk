@@ -1,4 +1,4 @@
-# Structural Risk – Summary Report
+[monte_carlo_risk.csv](https://github.com/user-attachments/files/23014892/monte_carlo_risk.csv)# Structural Risk – Summary Report
 This project produces Monte Carlo simulation of expected value (EV) versus expected growth rate (EGR) investment strategies; this work expands upon an earlier paper in decision theory (Osterman 2025, the "technical report" in the repository), putting it in a computational context.
 
 BACKGROUND:
@@ -25,7 +25,14 @@ RESULTS:
 
 A characteristic output of the model is shown below:
 
-<img width="623" height="221" alt="Screenshot 2025-10-21 at 2 25 12 AM" src="https://github.com/user-attachments/assets/ca925b6b-4289-4e61-ac8c-a14400ecd832" />
+[Uploadingclamp,0.6,0.7,0.8,0.9,1.0
+EV type 0,3.32e+07,6.54e+05,1.19e+03,4.85e-01,0.00e+00
+EGR type 0,2.20e+10,1.18e+11,3.78e+08,1.19e+06,4.76e+03
+EV type 1,2.39e+07,2.99e+04,5.35e-01,4.72e-01,0.00e+00
+EGR type 1,2.50e+06,8.96e+06,2.47e+06,7.25e+04,2.96e+02
+EV type 2,3.03e+05,1.25e+02,5.27e-01,4.66e-01,0.00e+00
+EGR type 2,5.91e+08,3.98e+09,1.24e+09,6.13e+04,4.91e+02
+ monte_carlo_risk.csv…]()
 
 Figure 1: characteristic output of the simulation for EV and EGR strategies. Average EV portfolio value approaches 0 as the clamp parameter approaches 1 (i.e., as we relax precautionary or conservative safeguards against risk).
 
