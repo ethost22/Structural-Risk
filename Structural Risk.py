@@ -87,10 +87,11 @@ def visualize(P1, P2, t):
     plt.xlabel("Time")
     plt.ylabel("Portfolio Value")
     plt.title("Two Investment Strategies wrt Time")
+    plt.savefig("single_risk_plot.png")
     plt.show()
     return
 
-def vis_suplots(m, clamp):
+def vis_suplots(m, clamp = [0.5, 0.6, 0.7, 0.8, 0.9, 1.0]):
     #a function to plot multiple subplots at different clamp values
     n = len(m)
 
@@ -192,7 +193,7 @@ def single_trial(n = 0, clamp = 0.8):
         count += 1
 
     #print(P1_report, P2_report)
-    return (P1_portfolio, P2_portfolio, time_sequence)
+    return P1_portfolio, P2_portfolio, time_sequence
 
 def repeatable_trial(n = 0, clamp = 0.8):
     #This is essentially the same as single_trial(), but removes the
@@ -309,7 +310,7 @@ def matrix_as_csv(low = 2, high = 10):
     #note that matrix = [[[], [], []], [[], [], []], [[], [], []]]
     cleaned = [[[],[]],[[],[]],[[],[]]]
 
-    #processing the data into scientfic notation
+    #processing the data into scientific notation
     for i in range(0, 3):
         for j in range(1, 3):
             #we need to grab the EV and EGR data for each round type
@@ -363,6 +364,11 @@ def main():
     matrix_as_csv(6, 11)
     return
 
+def sub_main():
+    #returns a single plot. Just a useful tool to have
+    out = single_trial(2, 0.6)
+    visualize(out[0], out[1], out[2])
+
 if __name__ == "__main__":
     #packaging the code into a single main() function; includes
     #runtime tracking for purposes of further optimization
@@ -371,4 +377,5 @@ if __name__ == "__main__":
     start = timeit.default_timer()
     main()
     stop = timeit.default_timer()
+
     print(f"Runtime: {stop - start}")
