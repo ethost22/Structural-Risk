@@ -25,7 +25,7 @@ RESULTS:
 
 A characteristic output of the model is shown below:
 
-<img width="573" height="66" alt="Screenshot 2025-10-19 at 5 52 05 PM" src="https://github.com/user-attachments/assets/90ec06ab-4b78-4bd6-bd46-09f01c167790" />
+<img width="623" height="221" alt="Screenshot 2025-10-21 at 2 25 12 AM" src="https://github.com/user-attachments/assets/ca925b6b-4289-4e61-ac8c-a14400ecd832" />
 
 Figure 1: characteristic output of the simulation for EV and EGR strategies. Average EV portfolio value approaches 0 as the clamp parameter approaches 1 (i.e., as we relax precautionary or conservative safeguards against risk).
 
