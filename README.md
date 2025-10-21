@@ -1,7 +1,7 @@
 # Structural Risk – Summary Report
 This project produces Monte Carlo simulations of expected value (EV) versus expected growth rate (EGR) investment strategies; this work expands upon an earlier paper in decision theory and environmental policy (Osterman 2025, the "technical report" in the repository), putting it in a computational context.
 
-BACKGROUND:
+## Background:
 
 Longtermism is a philosophical position emerging from the tradition of classical utilitarianism, effective altruism, and contemporary rationalist communities. It is broadly committed to maximizing “total value” in the universe in the long term, often through the implementation of speculative technologies such as artificial general intelligence. In recent years, longtermist ideas have had an increasing influence on policy, particularly through their uptake by technology and investment leaders in Silicon Valley (cf. Godfrey-Smith 2022; Torres 2024).
 
@@ -9,7 +9,7 @@ Longtermists are optimistic about technological progress and comparatively uncon
 
 As an alternative, I propose the use of the Kelly criterion, or expected growth rate (EGR) strategy, a formalism derived from information theory and later applied to gambling theory and financial mathematics (cf. Thorp 2006). Unlike EV maximization, the EGR strategy dampens shocks from undesirable outcomes, ensuring long-run survival at the cost of forfeiting maximum short-term expectation. Under this model, many longtermist-style policies—particularly those that trade immediate environmental stability for speculative future payoffs—are shown to simply be mathematically unsound investment strategies which (ironically) fail to adequately account for the long run over which their investments must develop.
 
-COMPUTATIONAL IMPLEMENTATION:
+## Computational Implementation:
 
 The accompanying code implements a Monte Carlo simulation comparing the expected value (EV) and expected growth rate (EGR) strategies over repeated stochastic rounds of investment. Two simulated agents begin with identical portfolios and face sequential investment opportunities defined by:
 
@@ -21,7 +21,7 @@ The accompanying code implements a Monte Carlo simulation comparing the expected
 
 Player 1 invests according to EV maximization (all-in when the edge is positive, since EV increases linearly with proportion invested when edge > 0, and 0 otherwise); Player 2 invests according to EGR optimization (proportionally to the edge afforded to the player, bounded between 0 and 1). Player portfolios are updated each round according to the outcome of the gamble. The game terminates when one or more players goes bankrupt or after 200 rounds of play have transpired. Various risk-averse (‘clamp”) parameters are tested, which specify a fraction of the initial recommendation to invest. Using Monte Carlo methods, the simulation is repeated 10,000 times per parameter value in order to estimate the average terminal portfolio value for each strategy. 
 
-RESULTS:
+## Results:
 
 A characteristic output of the model is shown below:
 
@@ -37,7 +37,7 @@ Across all experimental conditions, we note the following:
 
 •	When “clamped” (i.e., constrained to invest a fixed fraction of the recommended amount), EV performance improves but never surpasses EGR (for the same clamp value). In the context of the model, a “clamped” or “fractional” EGR strategy of about 0.7 appears to maximize long-term portfolio value across stochastic regimes (round types).
 
-DISCUSSION:
+## Discussion:
 
 The simulation corroborates the theoretical analysis in Osterman 2025: maximizing expected value prioritizes short-term upside at the cost of structural fragility, while maximizing the expected growth rate produces robust, sustainable outcomes over time. Consider, for example, Figure 2 below:
 
@@ -55,7 +55,7 @@ Figure 3: 6 subplots for clamp parameters = [0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
 
 In the case where clamp = 1.0 (i.e., no conservative adjustment) EV quickly takes the lead over EGR; EGR dampens both negative shocks and short term gains, meaning that, in the event that both strategies win multiple rounds to start, EV will generically outperform EGR. But just as quickly as resources are won by EV, they are lost again. Similar behavior can be seen for clamp = 0.7, 0.8 above. EV is thus shown to be, once again, a remarkably volatile strategy; short term success of the strategy is no predictor of stability, and so strategies of this kind are unsuitable for long run, future-facing policy.
 
-Works Cited:
+## Works Cited:
 
 Godfrey-Smith, Peter: Is Longtermism Such a Big Deal? (2022)
 
