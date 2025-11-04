@@ -47,7 +47,7 @@ Figure 2: a characteristic graphical output of one run of the simulation.
 
 In the first few rounds of play, although the players have an edge, enticing both to make an investment, it does not pay off; both players consistently incur losses until ~ t = 7. By investing proportional to the edge, however, the EGR strategy dampens the shock to its portfolio, leaving it with greater resources going forward. The EV strategy, making no such adjustment, quickly fritters away its portfolio, leaving it to oscillate around some low value from which it is unable to recover. It eventually depletes its resources entirely, ending the simulation. Note that clamp here = 0.6—a conservative adjustment to both strategies.
 
-Figure 3 provides another interesting example of the instability of EV:
+Figure 3 provides more interesting examples of the instability of EV:
 
 ![Plot](https://github.com/user-attachments/assets/cc3bcaa5-e7af-44e2-9464-06ea0510003e)
 
